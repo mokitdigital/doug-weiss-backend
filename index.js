@@ -4,13 +4,14 @@ const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
 const router = require('./middleware/Clientes.router')
+const PORT = 3000 || process.env.PORT
 
 app.use(bodyParser.json())
 
 app.use('/api', router)
 app.use(cors())
 
-app.listen(3000)
+app.listen(PORT)
 
 //Conexão do Banco de Dados
 mongoose.connect('mongodb+srv://mokitdigital:20denovembro@cluster0.qpd1r.mongodb.net/mokitdigital?retryWrites=true&w=majority', {
