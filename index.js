@@ -4,7 +4,7 @@ const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
 const router = require('./middleware/Clientes.router')
-const PORT = 3000 || process.env.PORT
+const PORT = process.env.PORT
 
 app.use(bodyParser.json())
 
