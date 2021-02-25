@@ -5,7 +5,7 @@ const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
 const router = require('./middleware/Clientes.router')
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT
 
 app.use(bodyParser.json())
 
