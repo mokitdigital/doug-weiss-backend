@@ -11,7 +11,7 @@ app.use(bodyParser.json())
 app.use('/api', router)
 app.use(cors())
 
-app.listen(PORT)
+
 
 //Conexão do Banco de Dados
 mongoose.connect('mongodb+srv://mokitdigital:20denovembro@cluster0.qpd1r.mongodb.net/mokitdigital?retryWrites=true&w=majority', {
@@ -25,3 +25,5 @@ db.on('error', console.error.bind(console, 'Erro de conexão do banco de dados: 
 db.once('open', function() {
   console.log("Banco de dados conectado!!!")
 });
+
+app.listen(PORT)
