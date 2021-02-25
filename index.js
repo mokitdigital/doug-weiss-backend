@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const dotenv = require('dotenv').config()
 const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
@@ -14,7 +15,7 @@ app.use(cors())
 
 
 //Conexão do Banco de Dados
-mongoose.connect('mongodb+srv://mokitdigital:20denovembro@cluster0.qpd1r.mongodb.net/mokitdigital?retryWrites=true&w=majority', {
+mongoose.connect(process.env.DB_URL, {
   useNewUrlParser: true, 
   useUnifiedTopology: true
 })
