@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "ng build",
+    "heroku-postbuild": "ng build --prod"
   },
   "keywords": [],
   "author": "",
