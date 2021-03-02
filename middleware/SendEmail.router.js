@@ -2,6 +2,7 @@ const dotenv = require('dotenv').config()
 const router = require('express').Router()
 const FormularioModel = require('../models/Formulario/Formulario.model')
 const Nodemailer = require('nodemailer')
+const smtpTransport = require('nodemailer-smtp-transport')
 
 // Configure CORS
 router.all('/*', function(req, res, next) {
