@@ -1,6 +1,5 @@
 const router = require('express').Router()
 const Cadastros = require('../models/Usuarios/Cadastrados.model')
-const Mensagens = require('../models/Conversas/Mensagem.model')
 
 // Configure CORS
 router.all('/*', function(req, res, next) {
@@ -17,33 +16,12 @@ router.get('/cadastros', async(req, res) => {
   })
 })
 
-router.get('/mensagens', async(req, res) => {
-  const mensagensAll = await Mensagens.find()
-
-  res.json({
-    mensagensAll
-  })
-})
-
 router.post('/cadastros', async(req, res) => {
   await Cadastros.create(req.body)
 
   res.status(201).json({
     msg: 'Cadastro feito com sucesso'
   })
-})
-
-/**
- * Envia uma mensagem vinda do Front por JSON
- * para o Banco de Dados
- */
-router.post('/mensagem', async(req, res) => {
-  const newMensagem = await Mensagens.create(req.body)
-
-  res.json({
-    newMensagem
-  })
-  
 })
 
 /**

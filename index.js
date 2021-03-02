@@ -4,12 +4,16 @@ const dotenv = require('dotenv').config()
 const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
-const router = require('./middleware/Clientes.router')
-const PORT = process.env.PORT
+const routerClientes = require('./middleware/Clientes.router')
+const routerMensagens = require('./middleware/Mensagens.router')
+const routerFormulario = require('./middleware/SendEmail.router')
+const PORT = process.env.PORT || 5000
 
 app.use(bodyParser.json())
 
-app.use('/api', router)
+app.use('/api/usuarios', routerClientes)
+app.use('/api/mensagens', routerMensagens)
+app.use('/api/formularios', routerFormulario)
 app.use(cors())
 
 
