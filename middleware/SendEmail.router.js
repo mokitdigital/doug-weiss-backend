@@ -26,11 +26,12 @@ router.post('/recebidos', (req, res) => {
   
   // Mandando email
   const remetente = Nodemailer.createTransport({
-    service: 'gmail',
+    service: 'smtp.gmail.com',
     auth: {
       type: 'OAuth2',
       user: process.env.REMETENTE_EMAIL,
-      accessToken: process.env.REMETENTE_ACESS_TOKEN
+      clientId: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET
     }
   });
 
