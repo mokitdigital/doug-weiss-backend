@@ -1,3 +1,4 @@
+const dotenv = require('dotenv').config()
 const router = require('express').Router()
 const FormularioModel = require('../models/Formulario/Formulario.model')
 const Nodemailer = require('nodemailer')
@@ -26,9 +27,10 @@ router.post('/recebidos', (req, res) => {
   // Mandando email
   const remetente = Nodemailer.createTransport({
     service: 'gmail',
-    auth:{
+    auth: {
+      type: 'OAuth2',
       user: process.env.REMETENTE_EMAIL,
-      pass: process.env.REMETENTE_PASS
+      accessToken: process.env.REMETENTE_ACESS_TOKEN
     }
   });
 
