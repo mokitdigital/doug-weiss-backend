@@ -32,6 +32,7 @@ router.post('/recebidos', (req, res) => {
     auth: {
       type: 'OAuth2',
       user: process.env.REMETENTE_EMAIL,
+      pass: process.env.REMETENTE_PASS
     }
   });
 
