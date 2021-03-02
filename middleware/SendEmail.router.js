@@ -27,14 +27,14 @@ router.post('/recebidos', (req, res) => {
   const remetente = Nodemailer.createTransport({
     service: 'gmail',
     auth:{
-      user: 'mokitdigital@gmail.com',
-      pass: '20denovembro'
+      user: process.env.REMETENTE_EMAIL,
+      pass: process.env.REMETENTE_PASS
     }
   });
 
   const mailOptions = {
     from: data.email,
-    to: 'dougweisscontato@gmail.com',
+    to: process.env.MAIL_DOUG,
     subject: `Contato de ${data.nome} | Empresa: ${data.empresa}`,
     text: 
     `
