@@ -25,18 +25,19 @@ router.post('/recebidos', (req, res) => {
   const data = req.body
   
   // Mandando email
-  const remetente = Nodemailer.createTransport({
+  const remetente = Nodemailer.createTransport(smtpTransport({
     service: 'smtp.gmail.com',
-    port:465,
+    host: 'gmail',
+    /* port:465,
     secure: true, // true for 465, false for other ports
     logger: true,
     debug: true,
-    secureConnection: false,
+    secureConnection: false, */
     auth: {
       user: process.env.REMETENTE_EMAIL,
       pass: process.env.REMETENTE_PASS
     }
-  });
+  }));
 
   const mailOptions = {
     from: data.email,
