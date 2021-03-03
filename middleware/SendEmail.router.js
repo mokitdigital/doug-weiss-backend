@@ -22,6 +22,14 @@ router.get('/recebidos/empresas/:nome', async(req, res) => {
   })
 })
 
+router.get('/recebidos/empresas', async(req, res) => {
+  const formularios = await FormularioModel.find()
+
+  res.json({
+    formularios
+  })
+})
+
 router.post('/recebidos', (req, res) => {
   const data = req.body
   
