@@ -59,6 +59,7 @@ router.post('/recebidos', (req, res) => {
         error: error
       })
     } else {
+      console.log(req.body)
       // Salvar no banco de dados
       const newMessage = await FormularioModel.create(req.body)
 

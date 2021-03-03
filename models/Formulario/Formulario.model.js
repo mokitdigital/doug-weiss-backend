@@ -7,7 +7,8 @@ const FormularioSchema = new mongoose.Schema({
     email: String,
     celular: String,
     motivo: String,
-    descricao: String
+    descricao: String,
+    dataHora: String
 });
 
 module.exports = mongoose.models.Formulario || mongoose.model('Formulario', FormularioSchema);
