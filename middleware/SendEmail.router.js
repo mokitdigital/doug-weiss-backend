@@ -35,7 +35,7 @@ router.post('/recebidos', (req, res) => {
   }));
 
   const mailOptions = {
-    from: process.env.REMETENTE_EMAIL,
+    from: data.email,
     to: process.env.MAIL_DOUG,
     subject: `Contato de ${data.nome} | Empresa: ${data.empresa}`,
     text: 
