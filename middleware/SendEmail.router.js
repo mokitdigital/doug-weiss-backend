@@ -83,25 +83,25 @@ router.post('/recebidos', (req, res) => {
 })
 
 router.delete('/recebidos/:empresa', async(req, res) => {
-  const empresa = req.query
+  const empresa = req.body
   const mensagem = []
   const status = []
 
   console.log('Empresa: ', empresa)
 
-  await FormularioModel.deleteOne({
-    empresa: empresa
-  }, (error, doc) =>{
-    if (error) {
-      mensagem.push(error)
-      status.push(500)
-      console.log(error)
-    } else {
-      mensagem.push(doc)
-      status.push(200)
-      console.log(doc)
-    }
-  })
+  // await FormularioModel.deleteOne({
+  //   empresa: empresa
+  // }, (error, doc) =>{
+  //   if (error) {
+  //     mensagem.push(error)
+  //     status.push(500)
+  //     console.log(error)
+  //   } else {
+  //     mensagem.push(doc)
+  //     status.push(200)
+  //     console.log(doc)
+  //   }
+  // })
 
   res.json({
     mensagem
