@@ -82,7 +82,7 @@ router.post('/recebidos', (req, res) => {
   })
 })
 
-router.delete('/recebidos/:empresa', async(req, res) => {
+router.delete('/recebidos', async(req, res) => {
   const empresa = req.body
   const mensagem = []
   const status = []
