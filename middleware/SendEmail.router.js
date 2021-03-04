@@ -93,9 +93,11 @@ router.delete('/recebidos/:empresa', async(req, res) => {
     if (error) {
       mensagem.push(error)
       status.push(500)
+      console.log(error)
     } else {
       mensagem.push(doc)
       status.push(200)
+      console.log(doc)
     }
   })
 
