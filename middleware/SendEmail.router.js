@@ -88,7 +88,7 @@ router.delete('/recebidos/:empresa', async(req, res) => {
   const status = []
 
   await FormularioModel.deleteOne({
-    empresa
+    empresa: empresa
   }, (error, doc) =>{
     if (error) {
       mensagem.push(error)
