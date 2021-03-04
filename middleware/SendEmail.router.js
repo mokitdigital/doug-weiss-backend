@@ -81,4 +81,25 @@ router.post('/recebidos', (req, res) => {
   })
 })
 
+router.delete('/recebidos/:empresa', async(req, res) => {
+  const empresa = req.query.empresa
+  const mensagem = []
+  const status = []
+  await FormularioModel.deleteOne({
+    empresa
+  }, (error, doc) =>{
+    if (error) {
+      mensagem.push(error)
+      status.push(500)
+    } else {
+      mensagem.push(doc)
+      status.push(200)
+    }
+  })
+
+  res.json({
+    mensagem
+  })
+})
+
 module.exports = router
