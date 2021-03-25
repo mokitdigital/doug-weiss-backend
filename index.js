@@ -7,6 +7,7 @@ const mongoose = require('mongoose')
 const routerClientes = require('./middleware/Clientes.router')
 const routerMensagens = require('./middleware/Mensagens.router')
 const routerFormulario = require('./middleware/SendEmail.router')
+const routerAuth = require('./middleware/Auth.router')
 const PORT = process.env.PORT || 5000
 
 app.use(bodyParser.json())
@@ -14,9 +15,8 @@ app.use(bodyParser.json())
 app.use('/api/usuarios', routerClientes)
 app.use('/api/mensagens', routerMensagens)
 app.use('/api/formularios', routerFormulario)
+app.use('/api/auth', routerAuth)
 app.use(cors())
-
-
 
 //Conexão do Banco de Dados
 mongoose.connect(process.env.DB_URL, {
