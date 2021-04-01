@@ -9,7 +9,7 @@ router.all('/*', function(req, res, next) {
   next()
 })
 
-router.post('/search', async (req, res, next) => {
+router.get('/search', async (req, res) => {
   const { word } = req.query
 
   await FormularioModel.find({}, (err, formularios) => {
