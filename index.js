@@ -8,7 +8,8 @@ const routerClientes = require('./middleware/Clientes.router')
 const routerMensagens = require('./middleware/Mensagens.router')
 const routerFormulario = require('./middleware/SendEmail.router')
 const routerAuth = require('./middleware/Auth.router')
-const PORT = process.env.PORT || 5000
+const routerTable = require('./middleware/Table.router')
+const PORT = process.env.PORT || 9000
 
 app.use(bodyParser.json())
 
@@ -16,6 +17,7 @@ app.use('/api/usuarios', routerClientes)
 app.use('/api/mensagens', routerMensagens)
 app.use('/api/formularios', routerFormulario)
 app.use('/api/auth', routerAuth)
+app.use('/api/table', routerTable)
 app.use(cors())
 
 //Conexão do Banco de Dados
